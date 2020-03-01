@@ -12,6 +12,9 @@ public class thisHero {
         System.out.println("通过打印this看到的当前对象的虚拟地址："+this);
     }
 
+
+
+
     //通过this访问对象的属性
     public void setName1(String name){
         //参数名和属性名
@@ -28,6 +31,33 @@ public class thisHero {
         //将参数name赋值给this访问的属性
         this.name = name;
     }
+
+
+
+
+    public thisHero(){
+
+    }
+    //通过this调用其他构造方法，this(另一个构造方法的参数);即表示调用了另一个构造方法
+    //通过方法重载的方式，根据不同的参数选择调用的是哪个构造方法
+    public thisHero(String name){
+        this.name = name;
+        System.out.println("第一个构造参数");
+    }
+    public thisHero(String name,int hp){
+        //调用了第一个构造方法
+        this(name);//相当于thisHero(name),this相当于这个类
+        this.hp = hp;
+        System.out.println("第二个构造参数");
+    }
+    public thisHero(String name,int hp,int armor){
+        //this调用构造方法必须是第一个语句
+        this(name,hp);
+        System.out.println("第三个构造参数");
+        this.armor = armor;
+    }
+
+
 
     public static void main(String[] args){
         thisHero garen = new thisHero();
@@ -50,5 +80,9 @@ public class thisHero {
         System.out.println(h.name);
         h.setName3("name3");
         System.out.println(h.name);
+
+
+        thisHero hh = new thisHero("方法", 300, 290);
+//        System.out.println();
     }
 }
