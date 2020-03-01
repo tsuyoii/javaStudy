@@ -60,6 +60,8 @@ public class thisHero {
 
 
     public static void main(String[] args){
+//        this("方法", 300);
+
         thisHero garen = new thisHero();
         thisHero teemo = new thisHero();
         thisHero h = new thisHero();
@@ -83,6 +85,7 @@ public class thisHero {
 
 
         thisHero hh = new thisHero("方法", 300, 290);
+
 //        System.out.println();
     }
 }

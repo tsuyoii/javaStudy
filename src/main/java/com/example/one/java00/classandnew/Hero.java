@@ -2,7 +2,8 @@ package com.example.one.java00.classandnew;
 //引用和对象的练习
 public class Hero {
     public String name;
-    double hp;
+//    protected double hp;
+    public double hp;
 
     public static void main(String[] args){
         Hero h1 = new Hero();
@@ -11,6 +12,7 @@ public class Hero {
         Hero h4;
         h3 = h1;
         h4 = h3;
+        h1.hp=80;
         System.out.println("h2:"+h2);
         System.out.println("h4"+h4);
     }
