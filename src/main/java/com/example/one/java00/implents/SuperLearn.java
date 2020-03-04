@@ -25,6 +25,9 @@ public class SuperLearn extends Fulei{
         SuperLearn s = new SuperLearn("konan");
         System.out.println(s.getMoveSpeed());
         System.out.println(s.getMoveSpeed2());
+
+        System.out.println(s.toString());
+        System.out.println(s);
     }
 }
 class Fulei{
