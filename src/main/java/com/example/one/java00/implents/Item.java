@@ -25,6 +25,7 @@ class LifeOption extends Item{
     public void effect(){
         System.out.println("子类方法");
     }
+
 //    public static void main(String[] args){
 //        Item i = new Item();
 //        i.effect();//父类方法
