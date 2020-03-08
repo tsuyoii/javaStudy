@@ -10,6 +10,14 @@ public class StrWork {
         sw.strArrOrder();
         sw.matchMima(ss);
         sw.matchDiGui(ss, ss.length());
+
+//            String sentence = "盖伦,在进行了连续8次击杀后,获得了超神 的称号";
+//
+//            char[] cs = sentence.toCharArray(); //获取对应的字符数组
+//
+//            System.out.println(Arrays.toString(cs));
+
+
     }
     //随机字符串(只含大小写和数字，例如验证码时可用)
     public String SuijiStr(){
