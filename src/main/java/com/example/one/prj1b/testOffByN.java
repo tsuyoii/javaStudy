@@ -1,4 +1,4 @@
-package com.example.one.prj1b;
+package src.main.java.com.example.one.prj1b;
 
 import org.junit.Test;
 
@@ -8,7 +8,7 @@ import static org.junit.Assert.assertTrue;
 public class testOffByN {
     @Test
     public void testOffByN(){
-        OffByN oN = new OffByN(5);
+        com.example.one.prj1b.OffByN oN = new com.example.one.prj1b.OffByN(5);
         assertTrue(oN.equalChars('f', 'a'));
         assertFalse(oN.equalChars('z', 'x'));
     }
