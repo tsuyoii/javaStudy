@@ -1,6 +1,7 @@
 package com.example.one.java00.classandnew;
+import com.example.one.java00.implents.Item;
 //引用和对象的练习
-public class Hero {
+public class Hero extends Item{
     public String name;
 //    protected double hp;
     public double hp;
@@ -20,5 +21,8 @@ public class Hero {
         h1.hp=80;
         System.out.println("h2:"+h2);
         System.out.println("h4"+h4);
+    }
+    public String toString(){
+        return name;
     }
 }
