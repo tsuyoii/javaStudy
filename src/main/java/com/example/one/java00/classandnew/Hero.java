@@ -4,7 +4,12 @@ public class Hero {
     public String name;
 //    protected double hp;
     public double hp;
+    public Hero(){
 
+    }
+    public Hero(String name){
+        this.name = name;
+    }
     public static void main(String[] args){
         Hero h1 = new Hero();
         Hero h2 = new Hero();
