@@ -25,4 +25,7 @@ public class Hero extends Item{
     public String toString(){
         return name;
     }
+//    public String toString(){
+//        return name+" "+hp;
+//    }
 }
