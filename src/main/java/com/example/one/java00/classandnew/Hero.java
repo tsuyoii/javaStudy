@@ -2,9 +2,12 @@ package com.example.one.java00.classandnew;
 import com.example.one.java00.implents.Item;
 //引用和对象的练习
 public class Hero extends Item{
+    //增加id属性
+    public int id;
     public String name;
 //    protected double hp;
     public double hp;
+    public int damage;
     public Hero(){
 
     }
