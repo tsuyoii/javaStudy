@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        h5{
+            color: red;
+        }
+        table,td{
+            border: 1px solid lightskyblue;
+        }
+        .title{
+            background-color: #b3d8ff;
+            color: #005792;
+        }
+        .left{
+            padding: 10px;
+            float: left;
+        }
+        .right{
+            /*float: right;*/
+            margin-left: 400px;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        span{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h5>请注意：带有“*”的项目必须填写</h5>
+    <table>
+        <tr>
+            <td>
+                <div class="title"><b>请填写您的用户名：</b></div>
+                <div class="left">
+                    <p><span>*</span>通行证用户名：<input type="text" placeholder="请输入用户名"><p><a href="#">查看用户名是否被占用</a></p>
+                </div>
+                <div class="right">用户名由a~z的英文字母（不区分大小写）、0~9的数字、
+                    <b>点、减号或下划线</b>组成，长度为3~18个字符，只能以数字或字母开
+                    头和结尾，例如：kyzy_001</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="title"><b>请填写安全设置：</b>(安全设置用于验证账号和找回密码)</div>
+                <p><span>以下信息对保证您账号安全极为重要，请务必认真填写。</span></p>
+                <div class="left">
+                    <p><span>*</span>输入登录密码：<input type="password"></p>
+                    <p><span>*</span>登录密码确认：<input type="password"></p>
+                </div>
+                <div class="right">密码长度为6~16位，区分字母大小写。</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="left">
+                    <p><span>*</span>密码提示问题：<input type="text"></p>
+                    <p><span>*</span>密码提示答案：<input type="text"></p>
+                </div>
+                <div class="right">密码长度为6~16位，区分字母大小写。</div>
+            </td>
+        </tr>
+        <tr>
+            <td align="center"><button type="submit">提交表单</button></td>
+        </tr>
+    </table>
+</body>
+</html>
