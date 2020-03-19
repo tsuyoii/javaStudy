@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>练习相对定位，但是又不占用位置</title>
+    <style>
+        .absdiv{
+            position:absolute;
+            left:150px;
+        }
+        p.r{
+            position:relative;
+            left:0px;
+        }
+    </style>
+</head>
+<body>
+<p>正常文字1</p>
+<p>正常文字2</p>
+<span class="absdiv"><p class="r">相对定位的文字3</p></span>
+<p>正常文字4</p>
+<p>正常文字5</p>
+</body>
+</html>
