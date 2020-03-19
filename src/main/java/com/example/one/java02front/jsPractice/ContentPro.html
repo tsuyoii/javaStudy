@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>生成语句</title>
+    <style>
+        body{
+            font-family: 宋体;
+            font-size: small;
+        }
+        td.label{
+            border: 1px solid #b1b1b1;
+        }
+        table{
+            width: 600px;
+        }
+        td{
+            width: 100px;
+        }
+    </style>
+    <script>
+        function $(id){
+            var value = document.getElementById(id).value;
+            return value;
+        }
+        function generate() {
+            var location = $("location");
+            var comType = $("companyType");
+            var comName = $("companyName");
+            var bossName= $("bossName");
+            var money= $("money");
+            var product= $("product");
+            var unit= $("unit");
+
+            var result = location+"是的"+comType+comName+"不再"+bossName+"闹着玩"+money+"鸡"+product+"你"+unit+"太美";
+            document.getElementById("result").value = result;
+        }
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td class="label">地名：</td>
+            <td><input type="text" id="location"></td>
+            <td class="label">公司类型：</td>
+            <td><input type="text" id="companyType"></td>
+        </tr>
+        <tr>
+            <td class="label">公司名称：</td>
+            <td><input type="text" id="companyName"></td>
+            <td class="label">老板姓名：</td>
+            <td><input type="text" id="bossName"></td>
+        </tr>
+        <tr>
+            <td class="label">money：</td>
+            <td><input type="text" id="money"></td>
+            <td class="label">产品：</td>
+            <td><input type="text" id="product"></td>
+        </tr>
+        <tr>
+            <td class="label">价格计量单位：</td>
+            <td><input type="text" id="unit"></td>
+        </tr>
+        <tr>
+            <td colspan="4" align="center"><button onclick="generate()">生成</button></td>
+        </tr>
+        <tr>
+            <td colspan="4" align="center"><textarea cols="80" rows="10" id="result"></textarea></td>
+        </tr>
+    </table>
+</body>
+</html>
