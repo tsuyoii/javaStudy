@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            font-family: "微软雅黑 Light";
+            font-size: small;
+        }
+        td {
+            padding: 5px;
+            table-layout: auto;
+            border: 1px solid silver;
+        }
+        table{
+            border-collapse:collapse;
+        }
+        input{
+            width: 80px;
+        }
+    </style>
+    <script>
+        function calculate(){
+            var p=$("benjin");
+            var r=$("shouyi");
+            var n=$("year");
+            var each = $("zhuijia");
+            document.getElementById("re_benjin").value = (n-1)*each+p;
+            document.getElementById("re_lixi").value = 34;//算不下去啦....
+            document.getElementById("re_benxi").value = each;//算不下去啦....
+        }
+        function $(id){
+            return parseFloat(document.getElementById(id).value);
+        }
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>起始资金</td>
+            <td><input type="text" id="benjin">￥</td>
+        </tr>
+        <tr>
+            <td>每年收益</td>
+            <td><input type="text" id="shouyi">%</td>
+        </tr>
+        <tr>
+            <td>复利年数</td>
+            <td><input type="text" id="year">年</td>
+        </tr>
+        <tr>
+            <td>每年追加资金</td>
+            <td><input type="text" id="zhuijia">￥</td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><button onclick="calculate()">计算</button></td>
+        </tr>
+        <tr>
+            <td>本金和</td>
+            <td><input type="text" disabled="disabled" id="re_benjin">￥</td>
+        </tr>
+        <tr>
+            <td>利息和</td>
+            <td><input type="text" disabled="disabled" id="re_lixi">￥</td>
+        </tr>
+        <tr>
+            <td>本息和</td>
+            <td><input type="text" disabled="disabled" id="re_benxi">￥</td>
+        </tr>
+    </table>
+</body>
+</html>

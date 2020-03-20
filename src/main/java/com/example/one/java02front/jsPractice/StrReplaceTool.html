@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字符串替换工具</title>
+    <style>
+        span{
+            font-family: 宋体;
+            font-size: small;
+            margin: 10px;
+        }
+        input,textarea{
+            margin: 5px;
+        }
+        button{
+            margin-left: 80px;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        function replaceStr(){
+            var src = $("srcStr");
+            var look = $("lookfor");
+            var rep = $("replacefor");
+
+            var regS = new RegExp(look,"g");
+            document.getElementById("decStr").value = src.replace(regS,rep);
+        }
+        function $(id) {
+            return document.getElementById(id).value;
+        }
+    </script>
+</head>
+<body>
+<span>源字符串:</span><textarea id="srcStr"></textarea><br/>
+<span>查询:</span><input type="text" id="lookfor"><br/>
+<span>替换为:</span><input type="text" id="replacefor"><br/>
+<span>替换结果:</span><textarea id="decStr"></textarea><br/>
+<button onclick="replaceStr()">替换</button>
+</body>
+</html>
