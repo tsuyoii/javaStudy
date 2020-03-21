@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>判断输入框中的数是否是整数</title>
+</head>
+<script>
+    function panduan() {
+        var i=document.getElementById("input1").value;
+        //法一：但这个方法后来发现漏掉了一个数字与字母混用的情况，parseFloat正常返回
+        // alert(parseInt(i) );//如果不是一个数字，就会返回NaN，如果是浮点数，则截取为整数
+        // if(!parseFloat(i)){//parseFloat如果遇到第一个是非数字，就会返回NaN，否则返回数字
+        //     alert("请输入数字");
+        // }
+        // else if(i%1==0){
+        //     alert("输入的是个整数");
+        // }
+        // else
+        //     alert("输入的是个浮点数");
+
+
+
+        //改进方案一
+        // if(!Number(i)){//Number()只要遇到含有非数字，就会返回NaN，否则返回数字
+        //     alert("请输入数字");
+        // }
+        // else if(i%1==0){
+        //     alert("输入的是个整数");
+        // }
+        // else
+        //     alert("输入的是个浮点数");
+
+
+        //方案二：注，这只是判断是整数还是浮点数
+        // if(i.indexOf(".")==-1)
+        //     alert("是一个整数");
+        // else
+        //     alert("不是整数，请重新输入");
+        // alert(i.indexOf("."));
+
+
+
+        //改进方案二：
+        if(parseInt(i)==i){//parseInt会截取浮点数的小数点前一部分，也会截取遇到的第一个非数字的前部分
+            //因此，只要其转换后与原长度不同，即表示不是整数
+            alert("是一个整数");
+        }else{
+            alert("不是整数，请重新输入");
+        }
+    }
+</script>
+<body>
+<input id="input1"><button onclick="panduan()">判断</button>
+</body>
+</html>

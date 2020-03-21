@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>切换不同的图片</title>
+    <script>
+        function switchBySrc() {
+            //image.setAttribute("src","../cssPractice/002img/0.jpg");
+            //法二：
+            image.src="../cssPractice/002img/0.jpg";
+        }
+        function switchByAttr() {
+            var img1 = document.getElementById("image");
+            var as = img1.attributes;
+            as["src"].nodeValue="../cssPractice/002img/1.jpg";
+        }
+    </script>
+</head>
+<body>
+    <button onclick="switchBySrc()">通过src属性切换为图片1</button><br>
+    <button onclick="switchByAttr()">通过属性节点切换为图片2</button><br>
+    <img id="image" src="../cssPractice/002img/1.jpg"/>
+</body>
+</html>
