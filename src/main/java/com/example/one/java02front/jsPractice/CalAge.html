@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算年龄</title>
+    <style>
+    </style>
+    <script>
+        document.write("文档显示区域的高度"+window.innerHeight);
+        document.write("外部窗体的高度"+window.outerHeight);
+        function createYear() {
+            for(var i=1977;i<=new Date().getFullYear();i++){
+                document.write("<option>"+i+"</option>");
+            }
+        }
+        function createMonth(){
+            for(var i=1;i<=12;i++){
+                document.write("<option>"+i+"</option>");
+            }
+        }
+        function createDay() {
+            for(var i=1;i<=31;i++){
+                document.write("<option>"+i+"</option>");
+            }
+        }
+        function getAge() {
+            var d = new Date();
+            var y = d.getFullYear();
+            var m = d.getMonth()+1;
+            var da =d.getDate();
+            var yy = $("year");
+            var mm = $("month");
+            var dd = $("day");
+            if(da<dd){
+                m--;//如果现在的日期小于出生日期，则借一个月
+            }
+            if(m<mm){
+                y--;//如果现在的月份小于出生月份，则借一年
+            }
+            document.getElementById("age").innerHTML = parseInt(y)-parseInt(yy);
+        }
+        function $(id) {
+            return document.getElementById(id).value;
+        }
+    </script>
+</head>
+<body>
+<h5>请输入出生年月日</h5>
+<span>年份</span><select id="year"><script>createYear()</script></select>
+<span>月份</span><select id="month"><script>createMonth()</script></select>
+<span>日</span><select id="day"><script>createDay()</script></select><br>
+<button onclick="getAge()">计算年龄</button>
+<p><span id="age"></span></p>
+<p><span id="age1"></span></p>
+<p><span id="age2"></span></p>
+<p><span id="age3"></span></p>
+<p><span id="age4"></span></p>
+<p><span id="age5"></span></p>
+</body>
+</html>
