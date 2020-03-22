@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全选与反向选择</title>
+    <style>
+        a{
+            color: #005792;
+            text-decoration: none;
+        }
+    </style>
+    <script>
+        function selectAll() {
+            var ins = document.getElementsByTagName("input");
+            for(var i=0;i<ins.length;i++){
+                ins[i].checked=true;
+            }
+        }
+        function reverseSelect() {
+            var ins = document.getElementsByTagName("input");
+            for(var i=0;i<ins.length;i++){
+                ins[i].checked=!ins[i].checked;
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="checkbox" onclick="selectAll()">全选<br>
+<input type="checkbox" >tokyo hot<br>
+<input type="checkbox" >dota<br>
+<input type="checkbox" >lol<br>
+<input type="checkbox" >wow<br>
+<input type="checkbox" >warcraft<br>
+<input type="checkbox" >diablo<br>
+<a href="#nowhere" id="Nselect" onclick="reverseSelect()">反选</a>
+</body>
+</html>

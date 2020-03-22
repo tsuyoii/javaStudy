@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>账号是否存在</title>
+    <script>
+        function yanzhen() {
+            var uname=document.getElementById("uname");
+            var c = uname.value.substring(0,1);
+            if(c=='a'||c=='A')
+                document.getElementById("result").innerHTML="存在";
+            else
+                document.getElementById("result").innerHTML="不存在";
+        }
+    </script>
+</head>
+<body>
+<input type="text" id="uname" onchange="yanzhen()"><span id="result"></span>
+</body>
+</html>

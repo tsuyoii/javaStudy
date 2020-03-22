@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>改进下拉菜单</title>
+    <script>
+        // 法一
+        // function wuqiin() {
+        //     var tw = document.getElementById("wuqi");
+        //     tw.style.display="block";
+        //     console.log("进入");
+        // }
+        // function wuqiout() {
+        //     var tw = document.getElementById("wuqi");
+        //     tw.style.display="none";
+        //     console.log("出来");
+        // }
+        // function hujiain() {
+        //     var hj = document.getElementById("hujia");
+        //     hj.style.display="block";
+        //     console.log("进入");
+        // }
+        // function hujiaout() {
+        //     var hj = document.getElementById("hujia");
+        //     hj.style.display="none";
+        //     console.log("出来");
+        // }
+        // function heroin() {
+        //     var ho = document.getElementById("hero");
+        //     ho.style.display="block";
+        //     console.log("进入");
+        // }
+        // function heroout() {
+        //     var ho = document.getElementById("hero");
+        //     ho.style.display="none";
+        //     console.log("出来");
+        // }
+
+
+
+        //法二
+        function showDetails(className) {
+            var d=document.getElementsByClassName(className)[1];
+            var show = document.getElementsByClassName(className);
+            // for(var i=0;i<show.length;i++)
+            show.
+        }
+    </script>
+</head>
+<body>
+<!--改进练习-下拉菜单风格，使得当鼠标移动到不同菜单的时候，显示不同的下拉菜单-->
+<!--法一-->
+<!--<div>-->
+<!--    <span onmouseover="wuqiin()" onmouseout="wuqiout()">武器</span>-->
+<!--    <span onmouseover="hujiain()" onmouseout="hujiaout()">护甲</span>-->
+<!--    <span onmouseover="heroin()" onmouseout="heroout()">英雄</span>-->
+<!--    <table id="wuqi" style="display: none">-->
+<!--        <tr>-->
+<!--            <td>大剑</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>屠龙</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>倚天</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>七孔砖</td>-->
+<!--        </tr>-->
+<!--    </table>-->
+<!--    <table id="hujia" style="display: none">-->
+<!--        <tr>-->
+<!--            <td>胸甲</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>护腕</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>头盔</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>鞋子</td>-->
+<!--        </tr>-->
+<!--    </table>-->
+<!--    <table id="hero" style="display: none">-->
+<!--        <tr>-->
+<!--            <td>英雄</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>提莫</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>安妮</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>死哥</td>-->
+<!--        </tr>-->
+<!--    </table>-->
+<!--</div>-->
+
+
+<!--法二-->
+<span class="d1" onmouseover="showDetails(this.className)">武器</span>
+<span class="d2" onmouseover="showDetails(this.className)">护甲</span>
+<span class="d3" onmouseover="showDetails(this.className)">英雄</span>
+
+<div class="d d1">
+    <a href="#nowhere" class="a">大剑</a>
+    <a href="#nowhere" class="a">屠龙</a>
+    <a href="#nowhere" class="a">倚天</a>
+    <a href="#nowhere" class="a">七孔砖</a>
+</div>
+<div class="d d2">
+    <a href="#nowhere">反甲</a><br>
+    <a href="#nowhere">锁子甲</a><br>
+    <a href="#nowhere">厚甲</a><br>
+    <a href="#nowhere">穿山甲</a><br>
+</div>
+<div class="d d3">
+    <a href="#nowhere">gareen</a><br>
+    <a href="#nowhere">timor</a><br>
+    <a href="#nowhere">cop</a><br>
+    <a href="#nowhere">monkey</a><br>
+</div>
+</body>
+</html>
