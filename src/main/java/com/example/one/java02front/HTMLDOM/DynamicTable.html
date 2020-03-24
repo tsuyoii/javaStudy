@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态创建一个表</title>
+    <style>
+        table{
+            width:80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+    </style>
+    <script>
+        function creatTable() {
+            // var div = document.getElementById("d1");
+            // var a=document.createElement("a");
+            // var content = document.createTextNode("进百度");
+            // a.appendChild(content);
+            // var href = document.createAttribute("href");
+            // href.nodeValue="http://www.baidu.com";
+            // a.setAttributeNode(href);
+            // div.appendChild(a);
+
+
+
+            //法一
+            // var table = document.getElementById("t1");
+            // var tr = document.createElement("tr");
+            // textAdd(table,tr, "id 名称 血量 伤害");
+            // var tr = document.createElement("tr");
+            // textAdd(table,tr, "1 gareen 340 58");
+            // var tr = document.createElement("tr");
+            // textAdd(table, tr,"2 teemo 320 76");
+            // var tr = document.createElement("tr");
+            // textAdd(table, tr,"3 annie 380 38");
+            // var tr = document.createElement("tr");
+            // textAdd(table,tr, "4 deadbrother 400 90");
+
+
+
+            //法二
+            var table = document.getElementById("t1");
+            contentAdd(table, "id 名称 血量 伤害");
+            contentAdd(table, "1 gareen 340 58");
+            contentAdd(table,"2 teemo 320 76");
+            contentAdd(table,"3 annie 380 38");
+            contentAdd(table, "4 deadbrother 400 90");
+
+            //改变行背景
+            var ttr = document.getElementsByTagName("tr");
+            for(var i=0;i<ttr.length;i+=2){
+                ttr[i].style.backgroundColor="lightgray";
+            }
+        }
+        function textAdd(table,tr,text){
+            var tts = text.split(" ");
+            for(var i=0;i<tts.length;i++) {
+                var td = document.createElement("td");
+                var temptext = document.createTextNode(tts[i]);
+                td.appendChild(temptext);
+                tr.appendChild(td);
+            }
+            table.appendChild(tr);
+        }
+        function contentAdd(table,text) {
+            var tts = text.split(" ");
+            var tr = document.createElement("tr");
+            for(var i=0;i<tts.length;i++) {
+                var td = document.createElement("td");
+                var temptext = document.createTextNode(tts[i]);
+                td.appendChild(temptext);
+                td.style.textAlign="center";
+                td.style.width="20%";
+                tr.appendChild(td);
+            }
+            //添加属性节点
+            var borderb = document.createAttribute("border-bottom");
+            borderb.nodeValue="1px solid lightgray";
+            table.setAttributeNode(borderb);
+            table.appendChild(tr);
+        }
+    </script>
+</head>
+<body>
+<table id="t1"></table>
+<button onclick="creatTable()">动态创建一个表</button>
+</body>
+</html>
