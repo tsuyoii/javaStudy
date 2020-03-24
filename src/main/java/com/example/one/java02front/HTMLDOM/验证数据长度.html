@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>验证数据长度</title>
+    <script>
+        function yanzhen() {
+            var name=document.getElementById("uname");
+            var age=document.getElementById("uage").value;
+            if(name.value.length<3)
+                document.getElementById("tishi").innerHTML="至少需要3位";
+            if(parseInt(age)!=age)
+                document.getElementById("tishiage").innerHTML="年龄必须为整数";
+            else
+                alert("注册成功");
+        }
+    </script>
+</head>
+<body>
+账号：<input type="text" id="uname"><span id="tishi"></span>
+<br>
+年龄：<input type="text" id="uage"><span id="tishiage"></span>
+<button onclick="yanzhen()">注册</button>
+</body>
+</html>
