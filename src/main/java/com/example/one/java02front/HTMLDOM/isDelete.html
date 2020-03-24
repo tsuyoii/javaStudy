@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>删除提示</title>
+    <style>
+        table{
+            width:80%;
+            margin:0 auto;
+            border-collapse:collapse;
+        }
+    </style>
+    <script>
+        function ondelete(a) {
+            if(confirm("是否要删除这条记录")) {
+                console.log(a);
+                var td=a.parentNode;
+                var tr=td.parentNode;
+                var table=tr.parentNode;
+                table.removeChild(tr);
+            }
+        }
+    </script>
+</head>
+<body>
+<table>
+    <tr>
+        <td>英雄名称</td>
+        <td>操作</td>
+    </tr>
+    <tr id="dd1">
+        <td>盖伦</td>
+        <td><a src="#nowhere" onclick="ondelete(this)">删除</a></td>
+    </tr>
+    <tr id="dd2">
+        <td>提莫</td>
+        <td><a src="#nowhere" onclick="ondelete(this)">删除</a></td>
+    </tr>
+    <tr id="dd3">
+        <td>祈求者</td>
+        <td><a src="#nowhere" onclick="ondelete(this)">删除</a></td>
+    </tr>
+</table>
+</body>
+</html>

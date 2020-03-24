@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态加载JS</title>
+    <script>
+        function dynamicLoad() {
+            var body = document.getElementById("dyjs");
+            var script = document.createElement("script");
+            var src = document.createAttribute("src");
+            src.value="test3041.js";
+            script.setAttributeNode(src);
+            body.appendChild(script);
+        }
+    </script>
+</head>
+<body id="dyjs">
+<button onclick="dynamicLoad()">动态加载test3041.js文件</button>
+</body>
+</html>
