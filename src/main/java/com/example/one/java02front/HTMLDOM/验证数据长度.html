@@ -4,15 +4,45 @@
     <meta charset="UTF-8">
     <title>验证数据长度</title>
     <script>
+        // 正则表达式:
+        //     /..../:正则写在斜杠内
+        //     ^:开始符号
+        //     $:结束符号
+        //     []:定义一个匹配字符的范围如[0-9a-z]
+        //     [^]:代表排除,例如:[^0-9]排除0-9的数字
+        //     \s:任何空白字符
+        //     \S:任何非空白字符
+        //     \d:0-9数字
+        //     \D:任何非0-9数字
+        //     \w:大小写字母a-zA-Z 0-9数字 或者下划线_
+        //     \W:任何非大小写字母a-zA-Z 0-9数字 或者下划线_
+        //     .:换行符之外的任何字符
+        //     {n}:前一项重复n次
+        //     {n,m}:最少n次,最多m次
+        //     *:最少0次或多次
+        //     +:最少1次或多次
+        //     ?:0次或1次
+
         function yanzhen() {
             var name=document.getElementById("uname");
             var age=document.getElementById("uage").value;
+            var email=document.getElementById("uemail").value;
+            var Regex = /^(?:\w+\.?)*\w+@(?:\w+\.)*\w+$/;
             if(name.value.length<3)
                 document.getElementById("tishi").innerHTML="至少需要3位";
-            if(parseInt(age)!=age)
-                document.getElementById("tishiage").innerHTML="年龄必须为整数";
-            else
+            else if(parseInt(age)!=age||age<0) {
+                //法二if(isNaN(age)||age<0)
+                document.getElementById("tishi").innerHTML="";
+                document.getElementById("tishiage").innerHTML = "年龄必须为大于0的正整数";
+            }
+            else if(email.length==0||!(Regex.test(email))) {
+                document.getElementById("tishiage").innerHTML = "";
+                document.getElementById("tishiemail").innerHTML = "email为空或格式不正确";
+            }
+            else {
+                document.getElementById("tishiemail").innerHTML = "";
                 alert("注册成功");
+            }
         }
     </script>
 </head>
@@ -20,6 +50,9 @@
 账号：<input type="text" id="uname"><span id="tishi"></span>
 <br>
 年龄：<input type="text" id="uage"><span id="tishiage"></span>
+<br>
+邮箱：<input type="text" id="uemail"><span id="tishiemail"></span>
+<br>
 <button onclick="yanzhen()">注册</button>
 </body>
 </html>
