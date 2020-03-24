@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格排序</title>
+    <style>
+        table{
+            width:80%;
+            margin:0 auto;
+            border-collapse: collapse;
+        }
+        td{
+            width:20%;
+            text-align: center;
+        }
+    </style>
+    <script>
+        function createTable() {
+            var table=document.getElementById("t1");
+            textAdd(table,"2 gareen 340 58");
+            textAdd(table,"1 teemo 320 76");
+            textAdd(table,"3 annie 380 38");
+            textAdd(table,"4 deadbrother 400 90");
+            //设置表头文字颜色
+            var ttr = document.getElementsByTagName("tr");
+            ttr[0].style.color="lightskyblue";
+            ttr[0].style.borderBottom="1px solid #005792";
+        }
+        function textAdd(table,datatext) {
+            var data = datatext.split(" ");
+            var tr = document.createElement("tr");
+            for(var i=0;i<data.length;i++){
+                var td = document.createElement("td");
+                var tempdata = document.createTextNode(data[i]);
+                td.appendChild(tempdata);
+                tr.appendChild(td);
+            }
+            table.appendChild(tr);
+        }
+        function order(ttd) {
+            // console.log(ttd);
+            var table=document.getElementById("t1");
+            var ttr = document.getElementsByTagName("tr");
+            var ts = new Array();
+            for(var i=1;i<ttr.length;i++) {
+                    // console.log(ttr[i].children[0]);//获取到id
+                    // console.log(ttr[i].children[0].innerHTML);//通过控制台可以看到innerHTML即为id值
+                    // console.log(typeof ttr[i].children[0])//object
+                ts.push(ttr[i]);
+            }
+            switch(ttd){
+                case 0: ts.sort(comparator0);
+                        break;
+                case 1: ts.sort(comparator1);
+                    break;
+                case 2: ts.sort(comparator2);
+                    break;
+                case 3: ts.sort(comparator3);
+                    break;
+            }
+            // if(ttd==0) {
+            //     ts.sort(comparator0);
+            // }
+            for (var i=0; i <ts.length; i++) {
+                console.log(ts[i]);
+                table.appendChild(ts[i]);
+            }
+        }
+        function comparator0(v1,v2) {
+            return v1.children[0].innerHTML-v2.children[0].innerHTML;
+        }
+        function comparator1(v1,v2) {
+            return v1.children[1].innerHTML.localeCompare(v2.children[1].innerHTML);
+        }
+        function comparator2(v1,v2) {
+            return v1.children[2].innerHTML-v2.children[2].innerHTML;
+        }
+        function comparator3(v1,v2) {
+            return v1.children[3].innerHTML-v2.children[3].innerHTML;
+        }
+    </script>
+</head>
+<body onload="createTable()">
+<table id="t1">
+    <tr>
+        <td id="id" onclick="order(0)">id</td>
+        <td id="name" onclick="order(1)">名称</td>
+        <td id="hp" onclick="order(2)">血量</td>
+        <td id="damage" onclick="order(3)">伤害</td>
+    </tr>
+</table>
+</body>
+</html>
