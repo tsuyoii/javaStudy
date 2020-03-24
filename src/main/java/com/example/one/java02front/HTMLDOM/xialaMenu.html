@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>改进下拉菜单</title>
+    <style>
+        .d{
+            display: none;
+        }
+    </style>
     <script>
         // 法一
         // function wuqiin() {
@@ -40,10 +45,9 @@
 
         //法二
         function showDetails(className) {
-            var d=document.getElementsByClassName(className)[1];
+            // var d=document.getElementsByClassName(className)[1];
             var show = document.getElementsByClassName(className);
-            // for(var i=0;i<show.length;i++)
-            show.
+            show[1].style.display="block";
         }
     </script>
 </head>

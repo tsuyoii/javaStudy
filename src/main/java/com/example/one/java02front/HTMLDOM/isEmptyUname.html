@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>验证账号密码是否为空</title>
+    <script>
+        function login() {
+            var uname = $("uname");
+            var upsd = $("upsd");
+            if(uname.value.length==0||upsd.value.length==0){
+                alert("用户名或密码为空");
+                return false;
+            }
+            return true;
+        }
+        function $(id) {
+            return document.getElementById(id);
+        }
+    </script>
+</head>
+<body>
+<form  action="xialaMenu.html" method="post" onsubmit="return login()">
+    <span>账号：<input type="text" id="uname"></span><br>
+    <span>密码：<input type="password" id="upsd"></span><br>
+    <button type="submit">登录</button>
+</form>
+</body>
+</html>
