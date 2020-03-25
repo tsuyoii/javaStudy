@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        //重要，一定要声明为全局变量，不然报错xmlhttp未定义
+        var xmlhttp;
+
+
+        function check() {
+            var name=document.getElementById("uname").value;
+            var url="checkName.jsp?name="+name;
+
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = checkResult;
+            xmlhttp.open("GET",url,true);
+            xmlhttp.send(null);
+        }
+        function checkResult() {
+            if(xmlhttp.readyState==0)
+                document.getElementById("checkbox").innerHTML="请求未初始化";
+            else if(xmlhttp.readyState==1)
+                document.getElementById("checkbox").innerHTML="服务器连接已建立";
+            else if(xmlhttp.readyState==2)
+                document.getElementById("checkbox").innerHTML="请求已接收";
+            else if(xmlhttp.readyState==3)
+                document.getElementById("checkbox").innerHTML="请求处理中";
+            else {
+                document.getElementById("checkbox").innerHTML = "xmlhttp.readyState==4,请求已完成";
+                if(xmlhttp.status==200)
+                    document.getElementById("checkbox").innerHTML=xmlhttp.responseText;
+            }
+        }
+    </script>
+</head>
+<body>
+输入账号：<input type="text" id="uname" name="uname" onkeyup="check()">
+<span id="checkbox"></span>
+</body>
+</html>
