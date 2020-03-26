@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实现增删查改，未连接数据库</title>
+<!--    需要引入jQuery框架才能使用$-->
+    <script src="https://how2j.cn/study/js/jquery/2.0.0/jquery.min.js"></script>
+    <script src="vue.min.js"></script>
+    <style>
+        table{
+            border-collapse:collapse;
+        }
+        td{
+            border:1px solid lightgrey;
+        }
+        div#app{
+            margin:20px auto;
+            width:400px;
+            padding: 20px;
+        }
+        /*div#editPage{*/
+        /*    display: none;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<div id="app">
+    <div id="editPage">
+        英雄名称：<input type="text" v-model="heroEdit.name"/><br/>
+        血量：<input type="text" v-model="heroEdit.hp"/><br/>
+        <button @click="update()">修改</button>
+        <button @click="cancel()">取消</button>
+    </div>
+    <table id="heroList">
+    <thead>
+        <tr>
+            <th>英雄名称</th>
+            <th>血量</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr v-for="hero in heros">
+            <td>{{hero.name}}</td>
+            <td>{{hero.hp}}</td>
+            <td>
+                <a href="#nowhere" @click="editHero(hero)">编辑</a>
+                <a href="#nowhere" @click="deleteHero(hero.id)">删除</a>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <span>英雄名称：</span><input type="text" v-model="heroAdd.name"/><br>
+                <span>血量：</span><input type="text" v-model="heroAdd.hp"/><br>
+                <button @click="add()">增加</button>
+            </td>
+        </tr>
+    </tbody>
+    </table>
+</div>
+
+<script>
+<!--    先将修改页面表单隐藏起来-->
+    $('#editPage').hide();
+    var data={
+        heros:[
+            {id:1,name:'盖伦',hp:318},
+            {id:2,name:'提莫',hp:320},
+            {id:3,name:'安妮',hp:419},
+            {id:4,name:'死哥',hp:325},
+            {id:5,name:'米波',hp:422},
+        ],
+        heroAdd:{
+            id:0,
+            name:'',
+            hp:0
+        },
+        heroEdit:{
+            id:0,
+            name:'',
+            hp:0
+        }
+    };
+    var vue = new Vue({
+        el:'#app',
+        data:data,
+        methods:{
+            add(){
+                this.heroAdd.id = this.heros.length+1;
+                // alert(this.heroAdd.id);
+                this.heros.push(this.heroAdd);
+                //让heroAdd重新指向新的对象
+                this.heroAdd  = {id:0,name:'',hp:0};
+            },
+            deleteHero(id){
+                for(var i=0;i<this.heros.length;i++){
+                    if(this.heros[i].id==id){
+                        this.heros.splice(i,1);
+                        break;
+                    }
+                }
+            },
+            editHero(hero){
+                $('#heroList').hide();
+                $('#editPage').show();
+                this.heroEdit = hero;
+            },
+            update(){
+                // for(var i=0;i<this.heros.length;i++){
+                //     if(this.heros[i].id==id){
+                //         this.heroEdit.id=id;
+                //         this.heros.splice(i,1,this.heroEdit);
+                //         break;
+                //     }
+                // }
+
+                //v-model已经同步修改了，所以这里只需要恢复展示即可
+                $('#heroList').show();
+                $('#editPage').hide();
+            },
+            cancel(){
+                $('#heroList').show();
+                $('#editPage').hide();
+            }
+        }
+    });
+</script>
+</body>
+</html>
